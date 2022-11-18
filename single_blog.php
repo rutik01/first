@@ -1,8 +1,5 @@
 <?php 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-session_start();
+
 $user_id = $_SESSION['user_id'];
 
 $conn = mysqli_connect('localhost','root','root','yom');
@@ -56,7 +53,7 @@ include ('header.php');
 						<div class="row">
 							<div class="col-md-8">
 								<div class="blog-single-item">
-									<img src="./admin/classic_img/<?php echo $row['image'];  ?>"
+									<img src="./admin/classic_img/<?php echo $row['image'];  ?>">
 									<div class="blog-single-content">
 										<h3><a href="#"><?php echo $row['tital']  ?></a></h3>
 										<span><a href="#"><?php echo $row['tital']  ?></a> / <a href="#"><?php echo $row['date']; ?></a> / <a href="#">Uncategorized</a></span>
