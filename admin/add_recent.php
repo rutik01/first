@@ -65,14 +65,12 @@ if (isset($_POST['save']))
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1>General Form</h1>
-<!--                    --><?php //echo $up_que;  ?>
-
+                    <h1>Add Recent Form</h1>
                 </div>
                 <div class="col-sm-12">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">General Form</li>
+                        <li class="breadcrumb-item active">Recent Form</li>
                     </ol>
                 </div>
             </div>

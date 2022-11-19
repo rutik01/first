@@ -77,12 +77,8 @@
 										</ul>
 									</li>
 									<li><a href="about.php">About</a></li>
-									<li><a href="#" class="has-submenu">Work</a>
-										<ul class="sub-menu">
-											<li><a href="work-3columns.php">Three Columns</a></li>
-											<li><a href="work-4columns.php">Four Columns</a></li>
-											<li><a href="single-project.php">Single Project</a></li>
-										</ul>
+									<li><a href="work-3columns.php" >Work</a>
+
 									</li>
 									<li><a href="contact.php">Contact</a></li>
 								</ul>
