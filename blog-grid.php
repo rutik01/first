@@ -58,16 +58,16 @@ include 'header.php'; ?>
 						</div>
 					</div>	
 				</section>
-                <section>
+                <section class="blog_grid_pagi" >
                     <?php
                     $SELECT = "SELECT * FROM classic WHERE r_id = $user_id";
                     $result = mysqli_query($conn,$SELECT);
                     if (mysqli_num_rows($result)>0)
                     {
                         $count =  mysqli_num_rows($result);
-                        echo $count;
+
                         $total_pg  =ceil($count/$limit);
-                        echo $total_pg;
+
                         echo '<div class="container">';
                         echo '   <div class="pagi">';
                         echo '      <ul class="pagination justify-content-center ">';

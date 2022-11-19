@@ -96,7 +96,7 @@ $other_data = mysqli_query($conn,$select_other);
 								<div id="owl-portfolio" class="owl-carousel owl-theme">
                                     <?php while ($recent_row = mysqli_fetch_assoc($recent_data)) { ?>
 									<div class="item">
-								  		<figure>
+								  		<figure class="recent_silder">
 				        					<img alt="portfolio" src="./admin/recent_img/<?php echo $recent_row['image']; ?>">
 				        					<figcaption>
 				            					<h3><?php echo $recent_row['tital'];  ?></h3>

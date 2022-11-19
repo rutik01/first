@@ -37,6 +37,30 @@
         .pagination{
             display: flex;
         }
+        .recent_silder{
+            height: 240px;
+            width: 360px;
+        }
+        .recent_silder img{
+            height: 100%;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .blog_grid_pagi
+        {
+            padding-top: 0;
+            padding-bottom: 100px;
+        }
+        .img_box{
+            height: 400px;
+            width: 350px;
+
+        }
+        .img_box img{
+            height: 100%;
+            width: 100%;
+            box-sizing: border-box;
+        }
 
     </style>
 </head>

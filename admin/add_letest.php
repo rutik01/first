@@ -1,11 +1,17 @@
 <?php
-
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
 session_start();
 $conn = mysqli_connect('localhost','root','root','yom');
-
+if (isset($_GET['up_id']))
+{
+    $update_id = $_GET['up_id'];
+    $sel_que = "SELECT * FROM letest WHERE letest_id = $update_id";
+    $data = mysqli_query($conn, $sel_que);
+    $row = mysqli_fetch_assoc($data);
+}
 $user_id = $_SESSION['user_id'];
 if (isset($_POST['save']))
 {
@@ -18,16 +24,35 @@ if (isset($_POST['save']))
     {
         echo "<script> alert('Plz,Enter Information')</script>";
     }
+    elseif (isset($_GET['up_id']))
+    {
+        $up_id = $_GET['up_id'];
+        $image_data = $row['image'];
+        if ($image_name == '')
+        {
+            $img_up_data = $image_data;
+        }
+        else
+        {
+            $img_up_data = $image_name;
+            unlink("letest_img/".`$image_data`);
+        }
+        $update_query = "UPDATE letest SET tital = '$tital', decripation = '$descripation',image = '$img_up_data' WHERE letest_id = $up_id";
+        if (mysqli_query($conn,$update_query))
+        {
+            move_uploaded_file($_FILES['image']['tmp_name'],$path);
+            header('location:view_letest.php');
+        }
+    }
     else{
        $insert_que = "INSERT INTO letest (user_id,tital,decripation,image) values ($user_id,'$tital','$descripation','$image_name')";
-            if (mysqli_query($conn,$insert_que))
-            {
-                move_uploaded_file($_FILES['image']['tmp_name'],$path);
-            }
+       if (mysqli_query($conn,$insert_que))
+       {
+           move_uploaded_file($_FILES['image']['tmp_name'],$path);
+       }
     }
 }
 include ('header.php');
-
 ?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -63,18 +88,18 @@ include ('header.php');
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tital</label>
-                                    <input type="text" class="form-control" name="tital" placeholder="Enter Tital" value="">
+                                    <input type="text" class="form-control" name="tital" placeholder="Enter Tital" value="<?php echo @$row['tital'];   ?>">
 
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Descripation</label>
-                                    <input type="Text" class="form-control" name="descripation" placeholder="Enter Descripation" value="">
+                                    <input type="Text" class="form-control" name="descripation" placeholder="Enter Descripation" value="<?php echo @$row['decripation'];  ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputFile">File input</label>
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="image" value="">
+                                            <input type="file" class="custom-file-input" name="image" value="<?php echo @$row['image']['name'];  ?>">
                                             <label class="custom-file-label" for="exampleInputFile" >Choose file</label>
                                         </div>
                                         <div class="input-group-append">

@@ -36,7 +36,8 @@ include ('header.php');  ?>
                             <?php while ($row = mysqli_fetch_assoc($data)){ ?>
 							<div class="col-md-4">
 								<div class="blog-item classic_img">
-									<a href="single_blog.php?blog_id=<?php echo $row['c_id'];  ?>"><img src="./admin/classic_img/<?php echo $row['image']; ?>" alt=""></a>
+									<a href="single_blog.php?blog_id=<?php echo $row['c_id'];  ?>">
+                                        <img src="./admin/classic_img/<?php echo $row['image']; ?>" alt=""></a>
 									<h3><a href="single_blog.php?blog_id=<?php echo $row['c_id'];  ?>"><?php echo $row['tital']; ?></a></h3>
 									<span><a href="#"><?php echo $row['tital']; ?></a> / <a href="#"><?php echo $row['date']; ?></a> / <a href="#">Uncategorized</a></span>
 									<p><?php echo $row['descripation']; ?></p>

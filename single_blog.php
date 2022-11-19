@@ -7,7 +7,6 @@ $user_id = $_SESSION['user_id'];
 
 $conn = mysqli_connect('localhost','root','root','yom');
 
-
 if (isset($_GET['blog_id']))
 {
     $blog_id = $_GET['blog_id'];
