@@ -46,8 +46,10 @@ include 'header.php';
 
 						<div class="row">
 							<div class="row" id="portfolio-grid">
-                                <?php while ($row = mysqli_fetch_assoc($data)) { ?>
-                                    <div class="item col-md-4 col-sm-6 col-xs-12 furniture">
+                                <?php while ($row = mysqli_fetch_assoc($data)) {
+                                    $class_name = $row['cat_name'];
+                                    ?>
+                                    <div class="item col-md-4 col-sm-6 col-xs-12 <?php echo $class_name; ?>>">
                                         <figure class="img_box">
                                             <img src="./admin/letest_img/<?php  echo $row['image']; ?>" >
                                             <figcaption>
@@ -57,7 +59,6 @@ include 'header.php';
                                         </figure>
                                     </div>
                                 <?php } ?>
-
 							</div>
 						</div>
 						<div class="col-md-12">

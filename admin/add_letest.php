@@ -52,6 +52,13 @@ if (isset($_POST['save']))
        }
     }
 }
+
+
+$sel_category = "SELECT * FROM category";
+$cat_data = mysqli_query($conn,$sel_category);
+
+
+
 include ('header.php');
 ?>
 <div class="content-wrapper">
@@ -95,6 +102,17 @@ include ('header.php');
                                     <label for="exampleInputPassword1">Descripation</label>
                                     <input type="Text" class="form-control" name="descripation" placeholder="Enter Descripation" value="<?php echo @$row['decripation'];  ?>">
                                 </div>
+                                <div class="form-group">
+
+                                    <select class="form-control" name="category"> Category
+                                        <option disabled active>All Category</option>
+                                        <?php while ($category_fetch_data = mysqli_fetch_assoc($cat_data))  { ?>
+                                            <option value="<?php echo $category_fetch_data['id']  ?>"> <?php echo $category_fetch_data['cat_name'];  ?> </option>
+                                        <?php  } ?>
+                                    </select>
+
+                                </div>
+
                                 <div class="form-group">
                                     <label for="exampleInputFile">File input</label>
                                     <div class="input-group">

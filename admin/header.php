@@ -256,6 +256,12 @@ error_reporting(E_ALL);
                         <p>Add Letest Image</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="add_category.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Add Category</p>
+                    </a>
+                </li>
               <li class="nav-item">
                 <a href="view_silder.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
