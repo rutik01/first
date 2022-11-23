@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 session_start();
 $s_id = $_SESSION['user_id'];
 $conn = mysqli_connect('localhost','root','root','yom');
-$sel_que = "SELECT * FROM  letest WHERE user_id = $s_id";
+$sel_que = "SELECT letest.*, category.cat_name FROM category INNER  JOIN  letest ON letest.cat_id = category.id WHERE letest.user_id = $s_id";
 $data  = mysqli_query($conn,$sel_que);
 
 include ('header.php');
@@ -26,6 +26,7 @@ include ('header.php');
                                 <th>Id</th>
                                 <th>Tital</th>
                                 <th>Decripation</th>
+                                <th>Category</th>
                                 <th>Image</th>
                                 <th>Update</th>
                                 <th>Delete</th>
@@ -36,6 +37,7 @@ include ('header.php');
                                     <td><?php echo $row['letest_id'];  ?></td>
                                     <td><?php echo $row['tital'];  ?></td>
                                     <td><?php echo $row['decripation'];  ?></td>
+                                    <td><?php echo $row['cat_name'];  ?></td>
                                     <td>
                                         <img src="letest_img/<?php echo $row['image'];  ?>" height="200px">
                                     </td>

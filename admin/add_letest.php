@@ -4,15 +4,16 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 session_start();
+$user_id = $_SESSION['user_id'];
 $conn = mysqli_connect('localhost','root','root','yom');
 if (isset($_GET['up_id']))
 {
     $update_id = $_GET['up_id'];
-    $sel_que = "SELECT * FROM letest WHERE letest_id = $update_id";
+    $sel_que = "SELECT letest.*, category.cat_name FROM category INNER  JOIN letest ON letest.cat_id = category.id WHERE letest_id = $update_id";
     $data = mysqli_query($conn, $sel_que);
     $row = mysqli_fetch_assoc($data);
 }
-$user_id = $_SESSION['user_id'];
+
 if (isset($_POST['save']))
 {
     $tital = $_POST['tital'];
@@ -38,7 +39,7 @@ if (isset($_POST['save']))
             $img_up_data = $image_name;
             unlink("letest_img/".`$image_data`);
         }
-        $update_query = "UPDATE letest SET tital = '$tital', decripation = '$descripation',image = '$img_up_data' WHERE letest_id = $up_id";
+        $update_query = "UPDATE letest SET tital = '$tital', decripation = '$descripation',image = '$img_up_data', cat_id =  $category_data  WHERE letest_id = $up_id";
         if (mysqli_query($conn,$update_query))
         {
             move_uploaded_file($_FILES['image']['tmp_name'],$path);
