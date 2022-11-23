@@ -19,6 +19,7 @@ if (isset($_POST['save']))
     $descripation = $_POST['descripation'];
     $image_name = $_FILES['image']['name'];
     $path = 'letest_img/'.$image_name;
+    $category_data = $_POST['category'];
 
     if ($tital ==  '' && $descripation == '' && $image_name == '')
     {
@@ -45,7 +46,7 @@ if (isset($_POST['save']))
         }
     }
     else{
-       $insert_que = "INSERT INTO letest (user_id,tital,decripation,image) values ($user_id,'$tital','$descripation','$image_name')";
+       $insert_que = "INSERT INTO letest (user_id,tital,decripation,image,cat_id) values ($user_id,'$tital','$descripation','$image_name',$category_data)";
        if (mysqli_query($conn,$insert_que))
        {
            move_uploaded_file($_FILES['image']['tmp_name'],$path);
@@ -56,8 +57,6 @@ if (isset($_POST['save']))
 
 $sel_category = "SELECT * FROM category";
 $cat_data = mysqli_query($conn,$sel_category);
-
-
 
 include ('header.php');
 ?>

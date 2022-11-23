@@ -10,8 +10,6 @@ if (isset($_POST['save']))
 
     $insert_que = "INSERT INTO  category (cat_name) values  ('$tital')";
     mysqli_query($conn,$insert_que);
-
-
 }
 
 include ('header.php');

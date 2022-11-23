@@ -17,7 +17,7 @@ $offset = ($page - 1)*$limit;
 
 $conn = mysqli_connect('localhost','root','root','yom');
 
-$sel_que = "SELECT * FROM letest WHERE user_id = $user_id LIMIT {$offset},{$limit}";
+$sel_que = "SELECT letest.*, category.cat_name FROM category INNER JOIN letest ON letest.cat_id = category.id";
 $data = mysqli_query($conn,$sel_que);
 include 'header.php';
 
@@ -37,10 +37,19 @@ include 'header.php';
 						<div class="col-sm-12 text-center">
 							<div id="projects-filter">
 								<a href="#" data-filter="*" class="active">Show All</a>
-								<a href="#" data-filter=".furniture">Furniture</a>
-								<a href="#" data-filter=".wallpaper">Wallpaper</a>
-								<a href="#" data-filter=".nature">Nature</a>
-								<a href="#" data-filter=".branding">Branding</a>
+                                <?php
+                                $sel_category = "SELECT * FROM category";
+                                $category_data = mysqli_query($conn,$sel_category);
+
+                                while ($cat_data = mysqli_fetch_assoc($category_data)){
+                                ?>
+
+								<a href="#" data-filter=".<?php echo $cat_data['cat_name']; ?>"><?php echo $cat_data['cat_name']; ?></a>
+
+                                    <?php }  ?>
+<!--								<a href="#" data-filter=".wallpaper">Wallpaper</a>-->
+<!--								<a href="#" data-filter=".nature">Nature</a>-->
+<!--								<a href="#" data-filter=".branding">Branding</a>-->
 							</div>
 						</div>
 
@@ -48,7 +57,7 @@ include 'header.php';
 							<div class="row" id="portfolio-grid">
                                 <?php while ($row = mysqli_fetch_assoc($data)) {
                                     ?>
-                                    <div class="item col-md-4 col-sm-6 col-xs-12 >">
+                                    <div class="item col-md-4 col-sm-6 col-xs-12 <?php echo $row['cat_name'];   ?>">
                                         <figure class="img_box">
                                             <img src="./admin/letest_img/<?php  echo $row['image']; ?>" >
                                             <figcaption>
@@ -60,29 +69,29 @@ include 'header.php';
                                 <?php } ?>
 							</div>
 						</div>
-						<div class="col-md-12">
-							<div class="portfolio-page-nav text-center">
-                                <?php
-                                    $select = "SELECT * FROM letest WHERE user_id = $user_id";
-                                    $data  = mysqli_query($conn,$select);
-                                 if (mysqli_num_rows($data)>0)
-                                 {
-                                     $count = mysqli_num_rows($data);
-                                     $total_pg = ceil($count/$limit);
-                                 }
-
-                                    echo '<div class="container">';
-                                    echo '<div class="pagi">';
-                                    echo '<ul class="pagination justify-content-center ">';
-                                    for ($i=1; $i<=$total_pg; $i++)
-                                    {
-                                        echo '<li class="page-item active">
-                                               <a class="page-link " href="work-3columns.php?page='.$i.'">'.$i.'</a>
-                                           </li>';
-                                    }
-                                ?>
-							</div>
-						</div>
+<!--						<div class="col-md-12">-->
+<!--							<div class="portfolio-page-nav text-center">-->
+<!--                                --><?php
+//                                    $select = "SELECT * FROM letest WHERE user_id = $user_id";
+//                                    $data  = mysqli_query($conn,$select);
+//                                 if (mysqli_num_rows($data)>0)
+//                                 {
+//                                     $count = mysqli_num_rows($data);
+//                                     $total_pg = ceil($count/$limit);
+//                                 }
+//
+//                                    echo '<div class="container">';
+//                                    echo '<div class="pagi">';
+//                                    echo '<ul class="pagination justify-content-center ">';
+//                                    for ($i=1; $i<=$total_pg; $i++)
+//                                    {
+//                                        echo '<li class="page-item active">
+//                                               <a class="page-link " href="work-3columns.php?page='.$i.'">'.$i.'</a>
+//                                           </li>';
+//                                    }
+//                                ?>
+<!--							</div>-->
+<!--						</div>-->
 					</div>
 				</section>
 

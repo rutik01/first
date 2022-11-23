@@ -29,7 +29,7 @@
         .classic_img img{
             height: 200px;
             width: 350px;
-            box-sizing: border-box;
+            object-fit: cover;
         }
         .pagi{
       padding-left: 507px;
@@ -44,7 +44,7 @@
         .recent_silder img{
             height: 100%;
             width: 100%;
-            box-sizing: border-box;
+            object-fit: cover;
         }
         .blog_grid_pagi
         {
@@ -54,12 +54,13 @@
         .img_box{
             height: 400px;
             width: 350px;
+            /*box-sizing: border-box;*/
 
         }
         .img_box img{
             height: 100%;
             width: 100%;
-            box-sizing: border-box;
+            object-fit: cover;
         }
 
     </style>
