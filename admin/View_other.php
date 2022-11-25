@@ -25,7 +25,7 @@ include('header.php');  ?>
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">User Silder Detail's </h3>
+                        <h3 class="card-title">User Other Detail's </h3>
 
                     </div>
                     <!-- /.card-header -->

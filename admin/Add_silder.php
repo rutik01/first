@@ -62,7 +62,7 @@ session_start();
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-12">
-            <h1>General Form</h1>
+            <h1>Add Silder Form</h1>
               <?php
 //              echo $up_que;
               ?>

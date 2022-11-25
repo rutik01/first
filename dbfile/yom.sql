@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Nov 22, 2022 at 04:49 AM
+-- Generation Time: Nov 25, 2022 at 04:58 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.8
 
@@ -92,14 +92,15 @@ INSERT INTO `letest` (`letest_id`, `user_id`, `tital`, `decripation`, `image`, `
 (1, 1, 'Rutik Thummar', 'I am Big Business Man', 'IMG_20220705_154307_401.jpg', 1),
 (2, 1, 'Nitinbhai Thummar', 'HELLO, Good Morning......', 'IMG_20220706_070508_230.webp', 2),
 (3, 1, 'Hello', 'I am small Business Man', 'IMG20220409124340.jpg', 3),
-(4, 1, 'Sanjay Bhai', 'I am Student...', 'Snapchat-1407762249.jpg', 4),
+(4, 1, 'Sanjay Bhai', 'I am Student OF BCA', 'Snapchat-1407762249.jpg', 4),
 (5, 1, 'Lalo', 'I am Node js devloper', 'Snapchat-1898660401.jpg', 1),
 (6, 1, 'Dhruv Thummar ', 'I am Science Student.........', 'IMG_0031.jpg', 2),
 (7, 1, 'Kunj', 'child For Sanjaybhai Thummar', 'IMG20220412074115.jpg', 3),
 (8, 1, 'Riya', 'Thummar', 'IMG_20220706_070215_536.webp', 4),
 (9, 1, 'Kavya', 'Thummar', 'IMG20220706185306.jpg', 1),
 (10, 1, 'Karshan Bhai Thummar', 'I am 60 year old man.......', 'IMG20211110171157.jpg', 2),
-(11, 1, 'Lalo', 'Thummar', 'IMG20220409124223.jpg', 3);
+(11, 1, 'Lalo', 'Thummar', 'IMG20220409124223.jpg', 3),
+(12, 1, 'Dk Bhai', 'Owner of JDBtech......', 'WhatsApp Image 2022-07-11 at 6.24.04 PM.jpeg', 3);
 
 -- --------------------------------------------------------
 
@@ -270,7 +271,7 @@ ALTER TABLE `classic`
 -- AUTO_INCREMENT for table `letest`
 --
 ALTER TABLE `letest`
-  MODIFY `letest_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `letest_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `other`
